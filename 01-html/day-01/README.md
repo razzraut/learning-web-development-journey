@@ -8,8 +8,6 @@
 - head tag
 - title tag
 - body tag
-- h1 tag
-- p tag
 
 ## Practice
 
