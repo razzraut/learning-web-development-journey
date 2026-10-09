@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning about HTML Table</title>
+</head>
+<body>
+
+
+    <h2>Preview of rowspan and colspan</h2>
+    <table border="2"
+            bordercolor="yellow"
+            cellspacing="2"
+            cellpadding="5" >
+        <caption>Demo of rowspan and colspan</caption>
+        <tr >
+            <th>column 1</th>
+            <th>column 2</th>
+            <th>column 3</th>
+        </tr>
+
+        <tr>
+            <td rowspan="2">r1c1</td>
+            <td>r1c2</td>
+            <td>r1c3</td>
+        </tr>
+
+        <tr>
+            <!-- <td>r2c1</td> -->
+            <td>r2c2</td>
+            <td>r2c3</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">r3c1</td>
+            <!-- <td>r3c2</td> -->
+            <td>r3c3</td>
+        </tr>
+        
+
+    </table>
+
+</body>
+</html>
