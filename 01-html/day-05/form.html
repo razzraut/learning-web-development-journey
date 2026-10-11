@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning to make html form</title>
+</head>
+<body>
+    <h1>This is a layout of html form :</h1>
+
+    <form>
+
+      <div>
+        <label for="login">Authenticate yourself firstly:</label>
+        <input type="text" id="username" name="login" placeholder="Enter your username">
+        <input type="password" id="password" name="login" placeholder="Enter your password"
+      </div>
+
+      <div>
+          <label for="username">Enter your name:</label>
+          <input type="text" id="username" name="username" placeholder="First Name">
+          <input type="text" id="username" name="username" placeholder="Middle Name">
+          <input type="text" id="username" name="username" placeholder="Last Name">
+      </div>
+
+      <div>
+        <label for="gender">Select your gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+      </div>
+
+      <div>
+        <label for="field">Choose your CS field:</label>
+        <select name="field">
+            <option value="web dev">Web Development</option>
+            <option value="app dev">App Development</option>
+            <option value="ai dev">AI Development</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="favLang">Select your favourate languages:</label>
+        <input type="checkbox" id="html" name="favLang" value="yes">
+        <label for="html">HTML</label>
+        <input type="checkbox" id="css" name="favLang" value="yes">
+        <label for="css">CSS</label>
+        <input type="checkbox" id="javascript" name="favLang" value="yes">
+        <label for="javascript">JavaScript</label>
+      </div>
+
+      <div>
+        <label for="description">Tell us about your experience with your fav language:</label>
+        <br>
+        <textarea id="description" name="description" rows="5" cols="50"></textarea>
+      </div>
+      
+      <div>
+        <label for="fileUpload">Upload a screenshort :</label>
+        <input type="file" id="fileUpload" name="fileUpload" accept="image"> 
+      </div>
+
+      <div>
+        <input type="submit" name="submit" value="Submit">
+        <input type="reset" name="reset" value="Reset">
+        <input type="button" name="ok" value="OK">
+      </div>
+
+    </form>
+</body>
+</html>
