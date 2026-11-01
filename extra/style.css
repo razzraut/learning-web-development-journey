@@ -1,0 +1,606 @@
+
+/* 1. Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Page background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #10152f, #202d59);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+}
+
+/* 3. Header layout */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+
+    animation: slideDown 0.8s ease-out;
+}
+
+/* 4. Logo */
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #55d6ff;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.logo:hover span {
+    color: #a78bfa;
+    text-shadow: 0 0 15px #a78bfa;
+}
+
+/* 5. Animated navigation container */
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+}
+
+/* 6. Sliding indicator */
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    bottom: 7px;
+    left: var(--indicator-left, 7px);
+    width: var(--indicator-width, 0px);
+
+    background: linear-gradient(135deg, #635bff, #168bff);
+    border-radius: 30px;
+    box-shadow: 0 0 18px rgba(72, 126, 255, 0.4);
+
+    transition: left 0.35s ease, width 0.35s ease;
+    pointer-events: none;
+}
+
+/* 7. Navigation links */
+.navbar a {
+    position: relative;
+    z-index: 1;
+
+    padding: 12px 16px;
+    color: #d5ddf5;
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 30px;
+
+    transition: color 0.25s ease;
+}
+
+/* Active link and hover */
+.navbar a:hover,
+.navbar a.active {
+    color: white;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* Keyboard accessibility */
+.navbar a:focus-visible {
+    outline: 2px solid #55d6ff;
+    outline-offset: 3px;
+}
+
+/* 8. Get Started button */
+.header-btn {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 12px 20px;
+    border-radius: 30px;
+
+    background: linear-gradient(90deg, #635bff, #168bff);
+    box-shadow: 0 0 15px rgba(72, 126, 255, 0.35);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.header-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 25px rgba(72, 126, 255, 0.75);
+}
+
+/* 9. Header entrance animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 10. Tablet layout */
+@media (max-width: 1000px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .navbar a {
+        padding: 10px 12px;
+    }
+}
+
+/* 11. Mobile layout */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .header {
+        flex-direction: column;
+        padding: 20px 12px;
+        gap: 20px;
+    }
+
+    .navbar {
+        gap: 2px;
+    }
+
+    .navbar a {
+        padding: 9px 8px;
+        font-size: 13px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+}
+
+/* 12. Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* SECTION 3: MAIN CONTENT */
+
+.main-content {
+    max-width: 1200px;
+    margin: 85px auto 40px;
+}
+
+.featured-section {
+    width: 100%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+    animation: fadeUp 0.8s ease both;
+}
+
+.eyebrow {
+    color: #55d6ff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.section-heading h1 {
+    color: white;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-heading h1 span {
+    color: #55d6ff;
+}
+
+.section-description {
+    color: #bdc8e8;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Card layout */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* Individual card */
+.content-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    animation: fadeUp 0.7s ease both;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Stagger the card entrance */
+.content-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.content-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Hover lift and glow */
+.content-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(85, 214, 255, 0.6);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+/* Image area */
+.card-image {
+    height: 210px;
+    overflow: hidden;
+}
+
+.card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+/* Zoom image on card hover */
+.content-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Card text */
+.card-body {
+    padding: 24px;
+}
+
+.card-category {
+    display: inline-block;
+    color: #55d6ff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.card-body h2 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card-body p {
+    color: #bdc8e8;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+/* Card button */
+.card-button {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    padding: 11px 16px;
+    border: 1px solid rgba(85, 214, 255, 0.5);
+    border-radius: 30px;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.card-button:hover {
+    background: #267bc5;
+    box-shadow: 0 0 20px rgba(85, 214, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Entrance animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .main-content {
+        margin-top: 55px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .card-image {
+        height: 230px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .section-heading,
+    .content-card {
+        animation: none;
+    }
+
+    .content-card,
+    .card-image img,
+    .card-button {
+        transition: none;
+    }
+}
+
+
+/* SECTION 4: SIDEBAR AND PAGE LAYOUT */
+
+.page-layout {
+    max-width: 1400px;
+    margin: 45px auto;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+/* Sidebar panel */
+.sidebar {
+    padding: 24px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    animation: sidebarEnter 0.7s ease both;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 22px;
+    margin: 0 0 25px 10px;
+}
+
+/* Navigation layout */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Common link and toggle styles */
+.side-link,
+.side-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px 12px;
+
+    color: #c7d2ee;
+    font: inherit;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Icon appearance */
+.side-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Hover effect */
+.side-link:hover,
+.side-toggle:hover {
+    color: white;
+    background: rgba(85, 214, 255, 0.09);
+    border-color: rgba(85, 214, 255, 0.15);
+    transform: translateX(3px);
+}
+
+/* Active item */
+.side-link.selected {
+    color: white;
+    background: linear-gradient(
+        100deg,
+        rgba(99, 91, 255, 0.45),
+        rgba(22, 139, 255, 0.18)
+    );
+    border-color: rgba(85, 214, 255, 0.25);
+    box-shadow: inset 3px 0 #55d6ff;
+}
+
+/* Arrow alignment and rotation */
+.arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.side-group.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Expandable submenu */
+.submenu {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    overflow: hidden;
+    padding-left: 34px;
+
+    transition:
+        grid-template-rows 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.submenu > * {
+    min-height: 0;
+}
+
+.side-group.open .submenu {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+/* Submenu links */
+.submenu a {
+    display: block;
+    color: #aebbdc;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 10px 8px;
+    border-left: 1px solid rgba(85, 214, 255, 0.25);
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+.submenu a:hover {
+    color: #55d6ff;
+    padding-left: 14px;
+}
+
+/* Keep the main content inside its grid column */
+.page-layout .main-content {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+}
+
+/* Sidebar entrance */
+@keyframes sidebarEnter {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tablet and mobile layout */
+@media (max-width: 900px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 18px 12px;
+    }
+
+    .sidebar-nav {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .sidebar {
+        animation: none;
+    }
+
+    .side-link,
+    .side-toggle,
+    .arrow,
+    .submenu,
+    .submenu a {
+        transition: none;
+    }
+}
