@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: max-content;
+    margin: 20px;
+    border: 2px solid black;
+    background: #464141;
+    
+}
+
+.text {
+    height: 100px;
+    width: 200px;
+    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    background: #cde2e7;
+    overflow: scroll;
+    overflow-wrap: break-word;
+    
+    
+}
